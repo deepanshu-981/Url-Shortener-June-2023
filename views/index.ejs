@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+
+    <h3><a href="/viewall">Viewall Urls</a></h3>
+    <h3><a href="/search">Search Urls</a></h3>
+
+    <form action="/shortUrls" method="post">
+        <label for="fullUrl">Url</label>
+        <input type="url" required placeholder="url" name="fullUrl" id=""fullUrl>
+        <br>
+        <label for="note">Any Note</label>
+        <input type="text" required placeholder="Note" name="note" id=""note>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>All URLs</h1>
+
+
+       
+    <table>
+
+        <thead>
+            <tr>
+                <th>FULL URL</th>
+                <th>SHORT URL</th>
+                <th>NOTE</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <% shortUrls.forEach(shortUrl =>{ %>
+
+                <tr>
+                    <td> <a href="<%= shortUrl.full %>"> <%= shortUrl.full %> </a>  </td>
+                    <td> <a href="<%= shortUrl.short %>"> <%= shortUrl.short %> </a></td>
+                    <td><%= shortUrl.note %></td>
+                </tr>
+
+           <% }) %>
+
+           
+        </tbody>
+
+    </table>
+
+</body>
+</html>
