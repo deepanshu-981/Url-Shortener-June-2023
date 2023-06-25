@@ -3,20 +3,26 @@
 <head>
     
     <title>URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <h1>Search URLs</h1>
-
-    <form action="/search" method="post">
-        <label for="search">Search Urls</label>
-        <input type="text" required value= "<%= search %>" name="search" id="search">
+    <div class="container" id="form">
+    <form action="/search" method="post" >
+        <label for="search" class="form-label">Search Urls</label>
+        <input type="text" required value= "<%= search %>" name="search" class="form-control"  id="search">
         <br>
-        <button type="submit">Submit</button>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+</div>
 
-
-       
-    <table>
+       <br>
+    <table class="table table-striped">
 
         <thead>
                <tr>
@@ -33,8 +39,8 @@
             <% shortUrls.forEach(shortUrl =>{ %>
 
                 <tr>
-                    <td> <a href="<%= shortUrl.full %>"> <%= shortUrl.full %> </a>  </td>
-                    <td> <a href="<%= shortUrl.short %>"> <%= shortUrl.short %> </a></td>
+                    <td> <a target="_blank" href="<%= shortUrl.full %>"> <%= shortUrl.full %> </a>  </td>
+                    <td> <a target="_blank" href="<%= shortUrl.short %>"> <%= shortUrl.short %> </a></td>
                     <td><%= shortUrl.note %></td>
                 </tr>
 

@@ -4,7 +4,7 @@ const mongoose =require('mongoose')
 const port = process.env.PORT || 5000
 
 const ShortUrl =require('./models/shortUrl')
-
+app.use(express.static(__dirname + '/public'));
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended:false}))
 mongoose.connect('mongodb://localhost/urlShortener',{
@@ -23,6 +23,7 @@ app.get('/search', async (req,res)=>{
 
 app.get('/viewall',async (req,res)=>{
     const shortUrls = await ShortUrl.find()
+    shortUrls.reverse()
     res.render('viewall',{shortUrls:shortUrls})
 })
 
@@ -41,7 +42,10 @@ app.post('/shortUrls',async (req,res)=>{
         full:req.body.fullUrl,
         note:req.body.note
     })
-    res.redirect('/')
+   
+  
+
+    res.redirect('/viewall')
 })
 
 app.post('/search',async (req,res)=>{
